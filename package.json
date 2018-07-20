@@ -1,0 +1,39 @@
+{
+  "name": "carabiner",
+  "version": "1.0.0",
+  "description": "Ethereum-based password manager",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "scripts/test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonchaffee/carabiner.git"
+  },
+  "author": "Brandon Chaffee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandonchaffee/carabiner/issues"
+  },
+  "homepage": "https://github.com/brandonchaffee/carabiner#readme",
+  "devDependencies": {
+    "aes-js": "^3.1.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "sha.js": "^2.4.11",
+    "solium": "^1.1.7"
+  },
+  "dependencies": {
+    "truffle": "^4.1.13"
+  }
+}
