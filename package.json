@@ -7,7 +7,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "scripts/test.sh"
+    "test": "scripts/test.sh",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:sol": "solium -d .",
+    "lint:sol:fix": "solium -d . --fix"
   },
   "repository": {
     "type": "git",
@@ -21,6 +25,7 @@
   "homepage": "https://github.com/brandonchaffee/carabiner#readme",
   "devDependencies": {
     "aes-js": "^3.1.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
@@ -34,6 +39,7 @@
     "solium": "^1.1.7"
   },
   "dependencies": {
+    "ganache-cli": "^6.1.6",
     "truffle": "^4.1.13"
   }
 }
