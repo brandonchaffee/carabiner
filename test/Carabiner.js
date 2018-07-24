@@ -30,6 +30,7 @@ function makeByteSet (key, text) {
   return bytes
 }
 
+// Create passable arguments for contract
 function prepForContract (key, username, url, password) {
   return [
     makeByteSet(key, username),
@@ -38,6 +39,7 @@ function prepForContract (key, username, url, password) {
   ]
 }
 
+// Remove prefix and padding from returned byte array
 function prepForDecryption (bytesArray) {
   var byteString = ''
   for (var i = 0; i < bytesArray.length; i++) {

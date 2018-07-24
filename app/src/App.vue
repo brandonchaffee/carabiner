@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <NavBar/>
+    <Vault/>
   </div>
 </template>
 
 <script>
+import Vault from '@/views/Vault'
+import NavBar from '@/views/NavBar'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Vault,
+    NavBar
+  }
 }
 </script>
 
@@ -18,6 +25,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+body {
+  margin: 0 !important;
 }
 </style>
