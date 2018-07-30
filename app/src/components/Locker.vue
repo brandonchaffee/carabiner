@@ -1,7 +1,8 @@
 <template>
   <div id="locker">
-    <div id="lock-holder">
+    <div  @click="showModal = true" id="lock-holder">
       <Lock/>
+      <LockSwitchModal v-if="showModal"/>
       <h1>Unlock</h1>
     </div>
   </div>
@@ -9,17 +10,16 @@
 
 <script>
 import Lock from '@/components/Lock'
+import LockSwitchModal from '@/components/LockSwitchModal'
 
 export default {
   name: 'Locker',
-  components: { Lock },
-  methods: {
-    greet: function (event) {
-      // `this` inside methods points to the Vue instance
-      console.log(document.getElementById('lock-arm'))
-      alert('Hello!')
+  components: { Lock, LockSwitchModal },
+  data () {
+    return {
+      showModal: false
     }
-  }
+  },
 }
 </script>
 
