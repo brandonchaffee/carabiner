@@ -1,13 +1,18 @@
 <template>
     <div id="navbar">
       <h1>Carabiner</h1>
-      <img class="unlock" src="../assets/padlock-unlock.svg">
+      <!-- <img class="unlock" src="../assets/padlock-unlock.svg"> -->
+      <div id="lockerholder">
+        <Lock/>
+      </div>
     </div>
 </template>
 
 <script>
+import Lock from '@/components/Lock'
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  components: { Lock }
 }
 </script>
 
@@ -34,9 +39,10 @@ h1 {
     margin: 0;
     transform: translate(0px, 3px);
 }
-.unlock {
+#lockerholder {
   /* float: right; */
-  height: 30px;
+  height: 40px;
+  width: 100px;
   padding-right: 25px;
   pointer: cursor;
 }
