@@ -123,5 +123,4 @@ svg:hover .unlockedArm{
   transform: translateY(0px);
 }
 
-
 </style>

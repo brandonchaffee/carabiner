@@ -28,7 +28,7 @@
 <script>
 
 export default {
-  name: 'LockSwitchModal',
+  name: 'LockSwitchModal'
 }
 </script>
 
@@ -74,7 +74,6 @@ strong {
   color: #ffffff;
   padding-left: 15px;
 }
-
 
 .modal-body {
   background: #ffffff;

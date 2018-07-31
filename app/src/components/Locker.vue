@@ -19,7 +19,7 @@ export default {
     return {
       showModal: false
     }
-  },
+  }
 }
 </script>
 
