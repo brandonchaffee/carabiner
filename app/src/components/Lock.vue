@@ -1,5 +1,8 @@
 <template>
     <svg
+      @mouseover="setSwitchStatus(switchToType)"
+      @mouseleave="setSwitchStatus(null)"
+      @click="setModalStatus(true)"
       xmlns:dc="http://purl.org/dc/elements/1.1/"
       xmlns:cc="http://creativecommons.org/ns#"
       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -63,13 +66,26 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Lock',
-  data () {
-    return {
-      isLocked: true
+  computed: {
+    isLocked: function () {
+      return this.$store.state.isLocked
+    },
+    switchToType: function () {
+      if (this.$store.state.isLocked) {
+        return 'unlocking'
+      } else {
+        return 'locking'
+      }
     }
-  }
+  },
+  methods: mapActions([
+    'setSwitchStatus',
+    'setModalStatus'
+  ])
 }
 </script>
 

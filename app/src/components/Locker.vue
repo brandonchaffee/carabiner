@@ -1,9 +1,12 @@
 <template>
   <div id="locker">
-    <div  @click="showModal = true" id="lock-holder">
+    <LockSwitchModal v-if="showModal"/>
+    <div v-if="isLocked" id="lock-holder">
       <Lock/>
-      <LockSwitchModal v-if="showModal"/>
       <h1>Unlock</h1>
+    </div>
+    <div v-else>
+      <Passwords/>
     </div>
   </div>
 </template>
@@ -11,13 +14,17 @@
 <script>
 import Lock from '@/components/Lock'
 import LockSwitchModal from '@/components/LockSwitchModal'
+import Passwords from '@/components/Passwords'
 
 export default {
   name: 'Locker',
-  components: { Lock, LockSwitchModal },
-  data () {
-    return {
-      showModal: false
+  components: { Lock, LockSwitchModal, Passwords },
+  computed: {
+    showModal: function () {
+      return this.$store.state.inModal
+    },
+    isLocked: function () {
+      return this.$store.state.isLocked
     }
   }
 }
@@ -35,7 +42,6 @@ export default {
   right: 0;
   bottom: 0;
   transition: all 500ms ease;
-  /* cursor: pointer; */
 }
 #lock-holder:hover h1{
   opacity: 1;

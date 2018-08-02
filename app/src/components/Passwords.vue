@@ -1,7 +1,6 @@
 <template>
   <div id="passwords">
-    <div class="test"></div>
-    <!-- <img id="lockimg" src="../assets/coloredlock.svg"> -->
+    <div v-for="item in passwordSet" v-bind:key="item.id" class="passwordSet"></div>
   </div>
 </template>
 
@@ -25,6 +24,12 @@ export default {
 </script>
 
 <style scoped>
+#passwords {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .passwordSet {
   background: rgba(71, 118, 230, 0.25);
   padding: 70px 150px 70px 150px;

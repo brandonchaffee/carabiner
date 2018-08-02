@@ -1,11 +1,6 @@
 <template>
   <div id="vault">
-    <h1 v-if="isUnlocked">Hi!</h1>
-    <Locker v-else>No</Locker>
-    <!-- <div class="passwordSet"
-      v-for="item in passwordSet"
-      v-bind:key="item.id"
-    > -->
+    <Locker></Locker>
   </div>
 </template>
 
@@ -16,11 +11,6 @@ export default {
   name: 'Vault',
   components: {
     Locker
-  },
-  data () {
-    return {
-      isUnlocked: false
-    }
   }
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
-    <div id="navbar">
+  <div id="navbar" :class="$store.state.switchStatus">
       <h1>Carabiner</h1>
-      <!-- <img class="unlock" src="../assets/padlock-unlock.svg"> -->
       <div id="lockerholder">
         <Lock/>
       </div>
@@ -10,6 +9,7 @@
 
 <script>
 import Lock from '@/components/Lock'
+
 export default {
   name: 'NavBar',
   components: { Lock }
@@ -22,13 +22,23 @@ export default {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background: #4776E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     text-align: left;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, .25);
     position: relative;
+    transition: background-position 1000ms ease;
+    background: linear-gradient(to left, #f85032, #e73827, #8E54E9, #4776E6, #11998e, #21dd68);
+    background-size: 500% 500%;
+    background-position: 50% 0%;
 }
+
+.locking {
+  background-position: 100% 0% !important;
+}
+
+.unlocking {
+  background-position: 0% 0% !important;
+}
+
 h1 {
     color: white;
     padding: 7px;
@@ -40,7 +50,6 @@ h1 {
     transform: translate(0px, 3px);
 }
 #lockerholder {
-  /* float: right; */
   height: 40px;
   width: 100px;
   padding-right: 25px;
