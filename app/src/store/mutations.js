@@ -5,7 +5,10 @@ export default {
   setLockStatus (state, payload) {
     state.isLocked = payload
   },
-  setModalStatus (state, payload) {
-    state.inModal = payload
+  setLockModal (state, payload) {
+    state.inLockModal = payload
+  },
+  setPassSetStatus (state, payload) {
+    state.passSetStatus = payload
   }
 }

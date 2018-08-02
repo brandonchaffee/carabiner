@@ -21,7 +21,7 @@ export default {
   components: { Lock, LockSwitchModal, Passwords },
   computed: {
     showModal: function () {
-      return this.$store.state.inModal
+      return this.$store.state.inLockModal
     },
     isLocked: function () {
       return this.$store.state.isLocked
@@ -32,8 +32,8 @@ export default {
 
 <style scoped>
 #lock-holder {
-  height: 30vh;
-  width: 30vw;
+  height: 25vh;
+  width: 25vh;
   position: absolute;
   margin: auto;
   padding-bottom: 50px;

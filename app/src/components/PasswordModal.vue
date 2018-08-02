@@ -4,25 +4,18 @@
        <div class="modal-wrapper">
          <div class="modal-container">
 
-           <div class="modal-header"
-                v-bind:class="{ toUnlock: isLocked, toLock: !isLocked }">
-              <strong v-if="isLocked">Unlock Vault</strong>
-              <strong v-else>Lock Vault</strong>
+           <div class="modal-header">
+             <strong>Hello</strong>
            </div>
 
            <div class="modal-body">
-             <div v-if="isLocked">
-               <div id="modal-title">Enter Key</div>
-               <input type="password">
-             </div>
-             <div v-else>
-               <div id="modal-title">Proceed with locking the vault?</div>
-             </div>
+             Hey there
            </div>
 
            <div class="modal-footer">
-             <div @click="setLockModal(false); setLockStatus(!isLocked)" id="confirm-button" class="button-type">Confirm</div>
-             <div @click="setLockModal(false)" id="cancel-button" class="button-type">Cancel</div>
+             <div id="copy" class="button-type">Copy</div>
+             <div id="edit" class="button-type">Edit</div>
+             <div @click="setPassSetStatus(null)" id="close" class="button-type">Close</div>
            </div>
          </div>
        </div>
@@ -34,15 +27,9 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'LockSwitchModal',
-  computed: {
-    isLocked: function () {
-      return this.$store.state.isLocked
-    }
-  },
+  name: 'PasswordModal',
   methods: mapActions([
-    'setLockModal',
-    'setLockStatus'
+    'setPassSetStatus'
   ])
 }
 </script>
@@ -73,27 +60,15 @@ export default {
   transition: all .3s ease;
 }
 .modal-header {
-  background: #4776E6;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #6368e1;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #785ee2, #6368e1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #785ee2, #6368e1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 10px;
   margin: 0px;
   border-radius: 10px 10px 0px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.toUnlock {
-  background: #31C17A;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #2CAB84, #31C17A);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #2CAB84, #31C17A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.toLock {
-  background: #e73827;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #f85032, #e73827);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #f85032, #e73827); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 strong {
@@ -139,7 +114,8 @@ input {
 }
 
 .button-type {
-  padding: 15px 20px;
+  width: 80px;
+  padding: 15px 0px;
   margin: 5px;
   border-radius: 5px;
   color: #ffffff;
@@ -147,22 +123,29 @@ input {
   cursor: pointer;
 }
 .button-type:hover {
-  padding: 15px 30px;
+  width: 100px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
 }
 
-#cancel-button {
+#close {
   background: #c6ccd3;
 }
-#cancel-button:hover {
+#close:hover {
   background: #9ea7b2;
 }
 
-#confirm-button {
+#copy {
   background: #96beff;
 }
-#confirm-button:hover {
+#copy:hover {
   background: #66a0ff;
+}
+
+#edit {
+  background: #ff7a97;
+}
+#edit:hover {
+  background: #f22653;
 }
 
 </style>

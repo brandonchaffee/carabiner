@@ -1,6 +1,7 @@
 let state = {
   switchStatus: null,
   isLocked: true,
-  inModal: false
+  inLockModal: false,
+  passSetStatus: null
 }
 export default state

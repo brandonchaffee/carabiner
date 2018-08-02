@@ -2,7 +2,7 @@
     <svg
       @mouseover="setSwitchStatus(switchToType)"
       @mouseleave="setSwitchStatus(null)"
-      @click="setModalStatus(true)"
+      @click="setLockModal(true)"
       xmlns:dc="http://purl.org/dc/elements/1.1/"
       xmlns:cc="http://creativecommons.org/ns#"
       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -84,7 +84,7 @@ export default {
   },
   methods: mapActions([
     'setSwitchStatus',
-    'setModalStatus'
+    'setLockModal'
   ])
 }
 </script>

@@ -10,5 +10,6 @@ Ethereum Based Password Manager
 * Creation: ~200k gas
 * Modification: ~40k gas
 
-#TODO
-Swtich to single byte storage, reference indivudal bytes by index
+# TODO
+1. Switch to single byte storage, reference individual bytes by index
+2. Assess known-plaintext attack, add verification phrase for key
