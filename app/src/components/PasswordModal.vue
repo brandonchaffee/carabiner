@@ -26,11 +26,11 @@
              <div class="item-set">
                <div class="name">Password</div>
                <div class="value-set">
-                 <div v-if="hidePassword" class="value"></div>
+                 <div v-if="hiddenPass" class="value"></div>
                  <div v-else class="value">{{ passwordSet.password }}</div>
-                 <div @click="hidePassword = false" v-if="hidePassword" class="action">Show</div>
-                 <div @click="hidePassword = true" v-else  class="action">Hide</div>
-                 <div class="end-tag action">Copy</div>
+                 <div @click="hiddenPass = false" v-if="hiddenPass" class=" end-tag action">Show</div>
+                 <div @click="hiddenPass = true" v-else  class="action">Hide</div>
+                 <div v-if="!hiddenPass" class="end-tag action">Copy</div>
                </div>
              </div>
            </div>
@@ -52,7 +52,7 @@ export default {
   name: 'PasswordModal',
   data () {
     return {
-      hidePassword: true,
+      hiddenPass: true,
       passwordSet: this.$store.state.passwordSet[this.$store.state.passSetStatus]
     }
   },
@@ -198,7 +198,7 @@ input {
 .action {
   background: #96beff;
   padding: 10px 10px;
-  transition: all 300ms ease;
+  transition: background 500ms ease, padding 500ms ease, border-radius 300ms ease;
   color: white;
   border-right: 2px solid #ffffff;
   cursor: pointer;
