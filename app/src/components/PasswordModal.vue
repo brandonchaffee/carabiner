@@ -5,15 +5,37 @@
          <div class="modal-container">
 
            <div class="modal-header">
-             <strong>Hello</strong>
+             <strong>{{passwordSet.site}}</strong>
            </div>
 
            <div class="modal-body">
-             Hey there
+             <div class="item-set">
+               <div class="name">URL</div>
+               <div class="value-set">
+                 <div class="value"> {{ passwordSet.site }} </div>
+                 <div class="end-tag action">Copy</div>
+               </div>
+             </div>
+             <div class="item-set">
+               <div class="name">Username</div>
+               <div class="value-set">
+                 <div class="value"> {{ passwordSet.username }} </div>
+                 <div class="end-tag action">Copy</div>
+               </div>
+             </div>
+             <div class="item-set">
+               <div class="name">Password</div>
+               <div class="value-set">
+                 <div v-if="hidePassword" class="value"></div>
+                 <div v-else class="value">{{ passwordSet.password }}</div>
+                 <div @click="hidePassword = false" v-if="hidePassword" class="action">Show</div>
+                 <div @click="hidePassword = true" v-else  class="action">Hide</div>
+                 <div class="end-tag action">Copy</div>
+               </div>
+             </div>
            </div>
 
            <div class="modal-footer">
-             <div id="copy" class="button-type">Copy</div>
              <div id="edit" class="button-type">Edit</div>
              <div @click="setPassSetStatus(null)" id="close" class="button-type">Close</div>
            </div>
@@ -28,6 +50,12 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'PasswordModal',
+  data () {
+    return {
+      hidePassword: true,
+      passwordSet: this.$store.state.passwordSet[this.$store.state.passSetStatus]
+    }
+  },
   methods: mapActions([
     'setPassSetStatus'
   ])
@@ -84,6 +112,7 @@ strong {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 #modal-title {
@@ -134,18 +163,55 @@ input {
   background: #9ea7b2;
 }
 
-#copy {
-  background: #96beff;
-}
-#copy:hover {
-  background: #66a0ff;
-}
-
 #edit {
   background: #ff7a97;
 }
 #edit:hover {
   background: #f22653;
+}
+
+.item-set {
+  display: flex;
+}
+
+.value-set {
+  display: flex;
+  width: 400px;
+}
+
+.name {
+  background: #e1e3e8;
+  width: 100px;
+  padding: 10px 0px;
+  border-radius: 7px 0px 0px 7px;
+  border-right: 2px solid #ffffff;
+}
+
+.value {
+  padding: 10px 10px;
+  flex-grow: 3;
+  background: #eff2f7;
+  border-right: 2px solid #ffffff;
+  text-align: left;
+}
+
+.action {
+  background: #96beff;
+  padding: 10px 10px;
+  transition: all 300ms ease;
+  color: white;
+  border-right: 2px solid #ffffff;
+  cursor: pointer;
+}
+
+.action:hover {
+  background: #66a0ff;
+  padding: 10px 14px;
+}
+
+.end-tag {
+  border-radius: 0px 7px 7px 0px;
+  border-right: none !important;
 }
 
 </style>

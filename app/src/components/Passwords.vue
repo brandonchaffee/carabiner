@@ -1,7 +1,7 @@
 <template>
   <div id="passwords">
     <div
-      v-for="(item, index) in passwordSet"
+      v-for="(item, index) in $store.state.passwordSet"
       v-bind:key="item.id"
       class="passwordSet"
       :class="{inactive:index != activeItem && activeItem != null, active:index == activeItem}"
@@ -20,19 +20,6 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Passwords',
   components: { PasswordModal },
-  data () {
-    return {
-      passwordSet: [
-        { 'site': 'Google', 'username': 'bobby', 'password': 'gopher' },
-        { 'site': 'Yahoo', 'username': 'buzz', 'password': 'gopherboy' },
-        { 'site': 'Github', 'username': 'buzz', 'password': 'gopherboy' },
-        { 'site': 'Gmail', 'username': 'buzz', 'password': 'gopherboy' },
-        { 'site': 'EDX', 'username': 'buzz', 'password': 'gopherboy' },
-        { 'site': 'Jello', 'username': 'buzz', 'password': 'gopherboy' },
-        { 'site': 'Yello', 'username': 'andy', 'password': 'gophertoy' }
-      ]
-    }
-  },
   computed: {
     activeItem: function () {
       return this.$store.state.passSetStatus
