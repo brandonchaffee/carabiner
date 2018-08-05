@@ -14,8 +14,15 @@ export default {
   components: {
     Vault,
     NavBar
+  },
+  beforeCreate () {
+    this.$store.dispatch('registerWeb3')
+  },
+  mounted () {
+    this.$store.dispatch('getContractInstance')
   }
 }
+
 </script>
 
 <style>

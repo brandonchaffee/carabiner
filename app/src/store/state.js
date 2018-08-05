@@ -3,6 +3,17 @@ let state = {
   isLocked: true,
   inLockModal: false,
   passSetStatus: null,
+  web3: {
+    isInjected: false,
+    instance: null,
+    networkId: null,
+    coinbase: null,
+    error: null
+  },
+  contract: {
+    instance: null,
+    passwordSets: null
+  },
   passwordSet: {
     'A': { 'site': 'Yahoo', 'username': 'buzz', 'password': 'gopherboy' },
     'B': { 'site': 'Github', 'username': 'buzz', 'password': 'gopherboy' },
