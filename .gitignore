@@ -62,4 +62,4 @@ typings/
 
 
 #Truffle Specific
-./build/*
+build/contracts/*

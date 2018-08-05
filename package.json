@@ -8,6 +8,8 @@
   },
   "scripts": {
     "test": "scripts/test.sh",
+    "metaGanache": "scripts/metaGanache.sh",
+    "init": "scripts/initialize.sh",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:sol": "solium -d .",
@@ -40,6 +42,7 @@
   },
   "dependencies": {
     "ganache-cli": "^6.1.6",
-    "truffle": "^4.1.13"
+    "truffle": "^4.1.13",
+    "web3": "^1.0.0-beta.35"
   }
 }
