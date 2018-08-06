@@ -40,7 +40,7 @@ module.exports = async function (callback) {
     var hexSet = prepper.forContract(key, x['username'], x['url'], x['password'])
     await this.token.addHexSet(...hexSet)
   })
-  console.log('Mock Vault Initializing')
+  console.log('Mock Vault Initialized')
 
   await generateContractJSON(
     this.token.address,

@@ -3,7 +3,20 @@ Ethereum Based Password Manager
 
 
 # Usage
+``` bash
+# install dependencies
+npm install
 
+# set up ganache with metamask account as default
+npm run metaGanache
+
+# initialize mock vault
+npm run init
+
+# start vue application
+cd app
+npm run start
+```
 
 # Gas Cost
 * Gas cost per 256 bit word: 20k gas
