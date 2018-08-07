@@ -4,7 +4,6 @@ const aesHelper = require('./helpers/aesHelper')
 
 function prepAndDecrypt (item, key) {
   const preppedHex = prepper.forDecryption(item)
-  console.log(item, preppedHex)
   return aesHelper.decryptFromHex(key, preppedHex)
 }
 

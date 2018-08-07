@@ -27,7 +27,6 @@ export default {
   },
   computed: {
     activeItem: function () {
-      console.log(this.$store.state)
       return this.$store.state.passSetStatus
     }
   },

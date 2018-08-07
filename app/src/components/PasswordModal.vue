@@ -193,6 +193,10 @@ input {
   background: #eff2f7;
   border-right: 2px solid #ffffff;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 350px;
 }
 
 .action {
