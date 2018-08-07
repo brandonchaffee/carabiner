@@ -20,6 +20,11 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Passwords',
   components: { PasswordModal },
+  data () {
+    return {
+      passwordSets: []
+    }
+  },
   computed: {
     activeItem: function () {
       return this.$store.state.passSetStatus

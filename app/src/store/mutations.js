@@ -10,7 +10,8 @@ export default {
   registerContractInstance (state, payload) {
     let result = payload
     state.contract.instance = result.contractInstance
-    state.contract.balance = result.tokenBalance
+    state.contract.setCount = result.setCount
+    state.contract.passwordSets = result.hexSets
   },
   setSwitchStatus (state, payload) {
     state.switchStatus = payload

@@ -20,7 +20,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getContractInstance')
-  }
+  },
 }
 
 </script>

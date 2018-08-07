@@ -12,6 +12,7 @@ let state = {
   },
   contract: {
     instance: null,
+    setCount: 0,
     passwordSets: null
   },
   passwordSet: {
