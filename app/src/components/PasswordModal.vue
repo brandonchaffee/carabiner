@@ -5,21 +5,21 @@
          <div class="modal-container">
 
            <div class="modal-header">
-             <strong>{{passwordSet.site}}</strong>
+             <strong>{{passwordSet._url}}</strong>
            </div>
 
            <div class="modal-body">
              <div class="item-set">
                <div class="name">URL</div>
                <div class="value-set">
-                 <div class="value"> {{ passwordSet.site }} </div>
+                 <div class="value"> {{ passwordSet._url }} </div>
                  <div class="end-tag action">Copy</div>
                </div>
              </div>
              <div class="item-set">
                <div class="name">Username</div>
                <div class="value-set">
-                 <div class="value"> {{ passwordSet.username }} </div>
+                 <div class="value"> {{ passwordSet._username }} </div>
                  <div class="end-tag action">Copy</div>
                </div>
              </div>
@@ -27,7 +27,7 @@
                <div class="name">Password</div>
                <div class="value-set">
                  <div v-if="hiddenPass" class="value"></div>
-                 <div v-else class="value">{{ passwordSet.password }}</div>
+                 <div v-else class="value">{{ passwordSet._password }}</div>
                  <div @click="hiddenPass = false" v-if="hiddenPass" class=" end-tag action">Show</div>
                  <div @click="hiddenPass = true" v-else  class="action">Hide</div>
                  <div v-if="!hiddenPass" class="end-tag action">Copy</div>
@@ -53,7 +53,7 @@ export default {
   data () {
     return {
       hiddenPass: true,
-      passwordSet: this.$store.state.passwordSet[this.$store.state.passSetStatus]
+      passwordSet: this.$store.state.decryptedSet[this.$store.state.passSetStatus]
     }
   },
   methods: mapActions([

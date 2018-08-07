@@ -1,3 +1,5 @@
+import getDecryptedSets from '../util/getDecryptedSets'
+
 export default {
   registerWeb3Instance (state, payload) {
     let result = payload
@@ -11,7 +13,7 @@ export default {
     let result = payload
     state.contract.instance = result.contractInstance
     state.contract.setCount = result.setCount
-    state.contract.passwordSets = result.hexSets
+    state.contract.hexSets = result.hexSets
   },
   setSwitchStatus (state, payload) {
     state.switchStatus = payload
@@ -24,5 +26,12 @@ export default {
   },
   setPassSetStatus (state, payload) {
     state.passSetStatus = payload
+  },
+  setDecryptedSet (state, payload) {
+    state.decryptedSet = payload
+  },
+  decryptSet (state, payload) {
+    let result = getDecryptedSets(state.contract.hexSets, payload)
+    state.decryptedSet = result
   }
 }

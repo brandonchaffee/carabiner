@@ -1,13 +1,13 @@
 <template>
   <div id="passwords">
     <div
-      v-for="(item, index) in $store.state.passwordSet"
+      v-for="(item, index) in $store.state.decryptedSet"
       v-bind:key="item.id"
       class="passwordSet"
       :class="{inactive:index != activeItem && activeItem != null, active:index == activeItem}"
       @click="setPassSetStatus(index)"
     >
-      {{item.site}}
+      {{item._url}}
     </div>
     <PasswordModal v-if="activeItem != null"/>
   </div>
@@ -27,6 +27,7 @@ export default {
   },
   computed: {
     activeItem: function () {
+      console.log(this.$store.state)
       return this.$store.state.passSetStatus
     }
   },

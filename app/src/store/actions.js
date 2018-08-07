@@ -10,8 +10,10 @@ export default {
     commit('registerContractInstance', result)
   }).catch(e => console.log(e)),
 
+  decryptSet: ({ commit }, payload) => commit('decryptSet', payload),
   setSwitchStatus: ({ commit }, payload) => commit('setSwitchStatus', payload),
   setLockStatus: ({ commit }, payload) => commit('setLockStatus', payload),
   setLockModal: ({ commit }, payload) => commit('setLockModal', payload),
-  setPassSetStatus: ({ commit }, payload) => commit('setPassSetStatus', payload)
+  setPassSetStatus: ({ commit }, payload) => commit('setPassSetStatus', payload),
+  setDecryptedSet: ({ commit }, payload) => commit('setDecryptedSet', payload)
 }

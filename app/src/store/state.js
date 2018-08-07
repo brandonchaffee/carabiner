@@ -13,8 +13,9 @@ let state = {
   contract: {
     instance: null,
     setCount: 0,
-    passwordSets: null
+    hexSets: null
   },
+  decryptedSet: null,
   passwordSet: {
     'A': { 'site': 'Yahoo', 'username': 'buzz', 'password': 'gopherboy' },
     'B': { 'site': 'Github', 'username': 'buzz', 'password': 'gopherboy' },
