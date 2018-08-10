@@ -5,39 +5,32 @@
          <div class="modal-container">
 
            <div class="modal-header">
-             <strong>{{passwordSet._url}}</strong>
+             <strong>Add to Vault</strong>
            </div>
 
            <div class="modal-body">
              <div class="item-set">
                <div class="name">URL</div>
                <div class="value-set">
-                 <div class="value"> {{ passwordSet._url }} </div>
-                 <div class="end-tag action">Copy</div>
+                 <input class="value">
                </div>
              </div>
              <div class="item-set">
                <div class="name">Username</div>
                <div class="value-set">
-                 <div class="value"> {{ passwordSet._username }} </div>
-                 <div class="end-tag action">Copy</div>
+                 <input class="value">
                </div>
              </div>
              <div class="item-set">
                <div class="name">Password</div>
                <div class="value-set">
-                 <div v-if="hiddenPass" class="value"></div>
-                 <div v-else class="value">{{ passwordSet._password }}</div>
-                 <div @click="hiddenPass = false" v-if="hiddenPass" class=" end-tag action">Show</div>
-                 <div @click="hiddenPass = true" v-else  class="action">Hide</div>
-                 <div v-if="!hiddenPass" class="end-tag action">Copy</div>
+                 <input class="value">
                </div>
              </div>
            </div>
 
            <div class="modal-footer">
-             <div id="edit" class="button-type">Edit</div>
-             <div @click="setPassSetStatus(null)" id="close" class="button-type">Close</div>
+             <div id="confirm-button" class="acceptable button-type">Add to Vault</div>
            </div>
          </div>
        </div>
@@ -46,7 +39,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 
 export default {
   name: 'PasswordModal',
@@ -56,9 +49,9 @@ export default {
       passwordSet: this.$store.state.decryptedSet[this.$store.state.passSetStatus]
     }
   },
-  methods: mapActions([
-    'setPassSetStatus'
-  ])
+  // methods: mapActions([
+  //   'setPassSetStatus'
+  // ])
 }
 </script>
 
@@ -131,31 +124,29 @@ strong {
 }
 
 .button-type {
-  width: 80px;
+  width: 120px;
   padding: 15px 0px;
   margin: 5px;
   border-radius: 5px;
   color: #ffffff;
   transition: all 500ms ease;
+}
+
+.acceptable {
+  background: #96beff;
   cursor: pointer;
 }
-.button-type:hover {
-  width: 100px;
+
+.acceptable:hover {
+  background: #66a0ff;
+  width: 140px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
 }
 
-#close {
+.unacceptable {
   background: #c6ccd3;
-}
-#close:hover {
-  background: #9ea7b2;
-}
+  cursor: default;
 
-#edit {
-  background: #ff7a97;
-}
-#edit:hover {
-  background: #f22653;
 }
 
 .item-set {
@@ -168,7 +159,8 @@ strong {
 }
 
 .name {
-  background: #e1e3e8;
+  background: #96beff;
+  color: #ffffff;
   width: 100px;
   padding: 10px 0px;
   border-radius: 7px 0px 0px 7px;
@@ -178,32 +170,20 @@ strong {
 .value {
   padding: 10px 10px;
   flex-grow: 3;
+  border: 1px solid #dae3e5;
+  outline: none;
   background: #eff2f7;
-  border-right: 2px solid #ffffff;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 350px;
-}
-
-.action {
-  background: #96beff;
-  padding: 10px 10px;
-  transition: background 500ms ease, padding 500ms ease, border-radius 300ms ease;
-  color: white;
-  border-right: 2px solid #ffffff;
-  cursor: pointer;
-}
-
-.action:hover {
-  background: #66a0ff;
-  padding: 10px 14px;
-}
-
-.end-tag {
+  max-width: 450px;
   border-radius: 0px 7px 7px 0px;
-  border-right: none !important;
+  font-size: 1.1em;
+  font-family: 'Lato';
+  color: #2c3e50;
 }
+
+
 
 </style>
