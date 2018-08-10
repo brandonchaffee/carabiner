@@ -26,3 +26,4 @@ npm run start
 # TODO
 1. Switch to single byte storage, reference individual bytes by index
 2. Assess known-plaintext attack, add verification phrase for key
+3. Assess given master password through ensuring already decrypted portion matches existing encryption

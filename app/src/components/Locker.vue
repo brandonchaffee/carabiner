@@ -1,5 +1,6 @@
 <template>
   <div id="locker">
+    <!-- <PasswordCreator/> -->
     <LockSwitchModal v-if="showModal"/>
     <div v-if="isLocked" id="lock-holder">
       <Lock/>
@@ -15,10 +16,11 @@
 import Lock from '@/components/Lock'
 import LockSwitchModal from '@/components/LockSwitchModal'
 import Passwords from '@/components/Passwords'
+import PasswordCreator from '@/components/PasswordCreator'
 
 export default {
   name: 'Locker',
-  components: { Lock, LockSwitchModal, Passwords },
+  components: { Lock, LockSwitchModal, Passwords, PasswordCreator },
   computed: {
     showModal: function () {
       return this.$store.state.inLockModal
