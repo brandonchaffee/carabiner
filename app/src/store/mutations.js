@@ -24,6 +24,9 @@ export default {
   setLockModal (state, payload) {
     state.inLockModal = payload
   },
+  setCreateModal (state, payload) {
+    state.inCreateModal = payload
+  },
   setPassSetStatus (state, payload) {
     state.passSetStatus = payload
   },

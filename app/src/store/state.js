@@ -2,6 +2,7 @@ let state = {
   switchStatus: null,
   isLocked: true,
   inLockModal: false,
+  inCreateModal: false,
   passSetStatus: null,
   web3: {
     isInjected: false,

@@ -1,7 +1,7 @@
 <template>
   <div id="locker">
-    <!-- <CreatorModal/> -->
-    <LockSwitchModal v-if="showModal"/>
+    <CreateModal v-if="showCreate"/>
+    <LockSwitchModal v-if="showLock"/>
     <div v-if="isLocked" id="lock-holder">
       <Lock/>
       <h1>Unlock</h1>
@@ -16,18 +16,16 @@
 import Lock from '@/components/Lock'
 import LockSwitchModal from '@/components/LockSwitchModal'
 import Passwords from '@/components/Passwords'
-import CreatorModal from '@/components/CreatorModal'
+import CreateModal from '@/components/CreateModal'
 
 export default {
   name: 'Locker',
-  data () {
-    return {
-      showCModal: false
-    }
-  },
-  components: { Lock, LockSwitchModal, Passwords, CreatorModal },
+  components: { Lock, LockSwitchModal, Passwords, CreateModal },
   computed: {
-    showModal: function () {
+    showCreate: function () {
+      return this.$store.state.inCreateModal
+    },
+    showLock: function () {
       return this.$store.state.inLockModal
     },
     isLocked: function () {

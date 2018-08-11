@@ -31,6 +31,7 @@
 
            <div class="modal-footer">
              <div id="confirm-button" class="acceptable button-type">Add to Vault</div>
+             <div @click="setCreateModal(false)" id="cancel-button" class="button-type">Cancel</div>
            </div>
          </div>
        </div>
@@ -39,19 +40,13 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'PasswordModal',
-  data () {
-    return {
-      hiddenPass: true,
-      passwordSet: this.$store.state.decryptedSet[this.$store.state.passSetStatus]
-    }
-  },
-  // methods: mapActions([
-  //   'setPassSetStatus'
-  // ])
+  methods: mapActions([
+    'setCreateModal'
+  ])
 }
 </script>
 
@@ -149,6 +144,17 @@ strong {
 
 }
 
+#cancel-button {
+  background: #c6ccd3;
+  cursor: pointer;
+}
+
+#cancel-button:hover {
+  background: #9ea7b2;
+  width: 140px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+}
+
 .item-set {
   display: flex;
 }
@@ -183,7 +189,5 @@ strong {
   font-family: 'Lato';
   color: #2c3e50;
 }
-
-
 
 </style>

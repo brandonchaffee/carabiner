@@ -1,18 +1,26 @@
 <template>
   <div id="navbar" :class="$store.state.switchStatus">
       <h1>Carabiner</h1>
-      <div id="lockerholder">
-        <Lock/>
+
+      <div id="side-items">
+        <div id="addholder">
+          <Adder/>
+        </div>
+        <div id="lockholder">
+          <Lock/>
+        </div>
       </div>
+
     </div>
 </template>
 
 <script>
 import Lock from '@/components/Lock'
+import Adder from '@/components/Adder'
 
 export default {
   name: 'NavBar',
-  components: { Lock }
+  components: { Lock, Adder }
 }
 </script>
 
@@ -49,11 +57,20 @@ h1 {
     margin: 0;
     transform: translate(0px, 3px);
 }
-#lockerholder {
+
+#side-items {
+  height: 40px;
+  display: flex;
+}
+
+#addholder {
+  height: 40px;
+  cursor: pointer;
+}
+#lockholder {
   height: 40px;
   width: 100px;
-  padding-right: 25px;
-  pointer: cursor;
+  cursor: pointer;
 }
 
 </style>
